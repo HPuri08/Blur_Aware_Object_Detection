@@ -58,4 +58,28 @@ scores remained low under the current training regimen.
 
 <img width="523" height="163" alt="image" src="https://github.com/user-attachments/assets/2ba3329b-a681-455a-8f62-a3e2a7abf8df" />
 
-# 4.4. Qualitative Observations
+
+
+# 4.3. Analysis
+It is important to acknowledge, that there are no pre
+trained light models available, that is why all of the ResNet
+18 models are trained from scratch.
+The observed large reductions in bbox losses indicate that
+blur-aware SSL helps the encoder learn more stable low
+and mid-level features that lead to better regression behavior.
+However, AP not improving (even 0.0 in our runs) suggests
+that detection heads did not sufficiently adapt during fine
+tuning. Possible reasons:
+• Insufficient no. epochs for the detection head to learn
+class discrimination on top of the SSL features.
+• A domain gap between SSL objectives (instance
+discrimination) and detection objectives (localiza
+tion+classification).
+• Hyperparameters (learning rate schedule, weight de
+cay, DETR-specific losses) not tuned for transferred
+encoders.
+
+# Qualitative Results
+
+<img width="226" height="359" alt="image" src="https://github.com/user-attachments/assets/d42712a4-6265-4df0-aac6-4d99f61121b5" />
+
