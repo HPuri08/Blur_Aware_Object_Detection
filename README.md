@@ -79,7 +79,5 @@ tion+classification).
 cay, DETR-specific losses) not tuned for transferred
 encoders.
 
-# Qualitative Results
 
-<img width="226" height="359" alt="image" src="https://github.com/user-attachments/assets/d42712a4-6265-4df0-aac6-4d99f61121b5" />
 
