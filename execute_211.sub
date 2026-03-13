@@ -1,0 +1,23 @@
+# execute_221.sub
+
+universe                = docker
+docker_image            = nvidia/cuda:11.4.3-runtime-ubuntu20.04
+
+executable = execute_211.sh
+arguments  =
+
+output     = condor_logs/execute_211_$(Cluster).out
+error      = condor_logs/execute_211_$(Cluster).err
+log        = condor_logs/execute_211_$(Cluster).log
+
+should_transfer_files   = YES
+
+# Remove this when using interactive mode
+when_to_transfer_output = ON_EXIT
+
+request_GPUs = 1
+request_CPUs = 4
+request_memory = 32G
+requirements = UidDomain == "cs.uni-saarland.de" 
++WantGPUHomeMounted = true
+queue 1
